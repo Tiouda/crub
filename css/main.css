@@ -1,0 +1,44 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+main{
+    background-color: black;
+}
+
+.titre{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100px;
+    background-color: blueviolet;
+    color: white;
+}
+
+.role{
+    width: 100%;
+    height: 90vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.role a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid gray;
+    width: 200px;
+    height: 200px;
+    text-decoration: none;
+    border-radius: 20px;
+    color: white;
+    transition: 0.7s;
+}
+
+.role a:hover{
+    transform: scale(1.1);
+    box-shadow: 10px 5px 5px rgb(255, 255, 255);}

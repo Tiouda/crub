@@ -1,0 +1,19 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+section .contenue form{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 15px;
+    margin: 0 auto;
+    width: 90%;
+}
+section .contenue form input,section .contenue form select {
+    width: 30%;
+    margin: 0 auto;
+    text-align: center;
+}
