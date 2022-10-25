@@ -21,12 +21,55 @@ if ($_SERVER['SERVER_NAME'] == "localhost") {
 
 <body>
     <main>
-        <div class="titre">
-            <h1>Tableau de bord</h1>
+        <div class="bandeau">
+            <div class="titre">
+                <h1>Tableau de bord</h1>
+            </div>
+            <div class="bouton">
+                <button class="open-button" onclick="openForm()">Connexion</button>
+                <div class="form-popup" id="myForm">
+                    <form action="/action_page.php" class="form-container">
+                        <h1>Connexion</h1>
+
+                        <label for="email"><b>Email</b></label>
+                        <input type="text" placeholder="Email" name="email" required>
+
+                        <label for="psw"><b>Mot de passe</b></label>
+                        <input type="password" placeholder="Mot de passe" name="psw" required>
+
+                        <button type="submit" class="btn">Login</button>
+                        <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+                    </form>
+                </div>
+                <button class="open-button" onclick="openForm2()">Inscription</button>
+                <div class="form-popup" id="myForm2">
+                    <form action="/action_page.php" class="form-container">
+                        <h1>Inscription</h1>
+
+                        <label for="nom"><b>Nom</b></label>
+                        <input type="text" placeholder="Votre nom" name="nom" required>
+
+                        <label for="prenom"><b>Prénom</b></label>
+                        <input type="text" placeholder="Votre prénom" name="prenom" required>
+
+                        <label for="psw"><b>Mot de passe</b></label>
+                        <input type="password" placeholder="Votre mot de passe" name="psw" required>
+
+                        <label for="email"><b>Email</b></label>
+                        <input type="text" placeholder="Votre mail" name="email" required>
+
+                        <label for="tel"><b>Numéro de téléphone</b></label>
+                        <input type="text" placeholder="Votre numéro de téléphone" name="tel" required>
+
+                        <button type="submit" class="btn">Login</button>
+                        <button type="button" class="btn cancel" onclick="closeForm2()">Close</button>
+                    </form>
+                </div>
+            </div>
         </div>
         <section>
             <div class="role">
-                <a href="<?php echo $path ?>/classes/insert/view/user.php">
+                <a href="<?php echo $path ?>/classes/select/view/viewuser.php">
                     <div>
                         <h2>Utilisateurs</h2>
                     </div>
@@ -51,7 +94,8 @@ if ($_SERVER['SERVER_NAME'] == "localhost") {
             </div>
         </section>
     </main>
-    <script src="<?php echo $path ?>/js/main.js"></script>
+    <script src="<?php echo $path ?>/js/index.js"></script>
+
 </body>
 
 </html>
