@@ -24,45 +24,30 @@ if ($_SERVER['SERVER_NAME'] == "localhost") {
         <div class="bandeau">
             <div class="titre">
                 <h1>Tableau de bord</h1>
+                <?php if (isset($_SESSION['role']) == 1) {
+                    echo "<p>" . $_SESSION['role'] . "</p>";
+                } ?>
             </div>
             <div class="bouton">
-                <button class="open-button" onclick="openForm()">Connexion</button>
+                <button class="open-button" onclick="openForm()"><?php if (isset($_SESSION['mail'])) {
+                                                                        echo " <form action='classes/deconnexion.php'>
+                                                                        <input type='submit' value='Déconnexion'></input>
+                                                                    </form>";
+                                                                    } else {
+                                                                        echo "Connexion";
+                                                                    } ?></button>
                 <div class="form-popup" id="myForm">
-                    <form action="/action_page.php" class="form-container">
+                    <form action="classes/select/controller/connexion_trt.php" method="POST" class="form-container">
                         <h1>Connexion</h1>
 
                         <label for="email"><b>Email</b></label>
-                        <input type="text" placeholder="Email" name="email" required>
+                        <input type="text" placeholder="Email" name="mail" required>
 
                         <label for="psw"><b>Mot de passe</b></label>
-                        <input type="password" placeholder="Mot de passe" name="psw" required>
+                        <input type="password" placeholder="Mot de passe" name="password" required maxlength="10">
 
                         <button type="submit" class="btn">Login</button>
                         <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
-                    </form>
-                </div>
-                <button class="open-button" onclick="openForm2()">Inscription</button>
-                <div class="form-popup" id="myForm2">
-                    <form action="/action_page.php" class="form-container">
-                        <h1>Inscription</h1>
-
-                        <label for="nom"><b>Nom</b></label>
-                        <input type="text" placeholder="Votre nom" name="nom" required>
-
-                        <label for="prenom"><b>Prénom</b></label>
-                        <input type="text" placeholder="Votre prénom" name="prenom" required>
-
-                        <label for="psw"><b>Mot de passe</b></label>
-                        <input type="password" placeholder="Votre mot de passe" name="psw" required>
-
-                        <label for="email"><b>Email</b></label>
-                        <input type="text" placeholder="Votre mail" name="email" required>
-
-                        <label for="tel"><b>Numéro de téléphone</b></label>
-                        <input type="text" placeholder="Votre numéro de téléphone" name="tel" required>
-
-                        <button type="submit" class="btn">Login</button>
-                        <button type="button" class="btn cancel" onclick="closeForm2()">Close</button>
                     </form>
                 </div>
             </div>
