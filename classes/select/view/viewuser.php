@@ -10,6 +10,7 @@ if ($_SERVER['SERVER_NAME'] == "localhost") {
 <?php
 $no_user = true;
 ?>
+
 <!DOCTYPE html>
 <html>
 
@@ -29,29 +30,30 @@ $no_user = true;
             <h1>Liste des utilisateurs.</h1>
             <div>
                 <?php
-                if ($_SESSION['role'] == "super") {
-                    echo "     <a href=../../insert/view/user.php>Crée un employé</a>";
-                } else {
-                    echo "";
-                } ?>
-                <table>
-                    <thead>
-                        <?php
-                        if ($_SESSION['role'] == "super") {
-                            echo "     <th>Nom</th>
+                if (isset($_SESSION['mail'])) {
+                    if ($_SESSION['role'] == "super") {
+                        echo "     <a href=../../insert/view/user.php>Crée un employé</a>";
+                    } else {
+                        echo "";
+                    } ?>
+                    <table>
+                        <thead>
+                            <?php
+                            if ($_SESSION['role'] == "super") {
+                                echo "     <th>Nom</th>
                         <th>Prénom</th>
                         <th>Mail</th>
                         <th>Tél</th>
                         <th>Rôle</th>
                         <th>Action</th>";
-                        } else {
-                            echo "<th>Nom</th>
+                            } else {
+                                echo "<th>Nom</th>
                             <th>Prénom</th>
                             <th>Action</th>";
-                        } ?>
+                            } ?>
 
-                    </thead>
-                    <tbody>
+                        </thead>
+                        <tbody>
                         <?php
                         foreach ($pdo->query("SELECT * FROM `user`") as $key => $row) {
                             $no_user = false;
@@ -80,12 +82,15 @@ $no_user = true;
                         }
                         if ($no_user == true) {
                             echo "<td colspan='6'>Aucun employé n'a était trouver </td>";
-                        } ?>
+                        }
+                    } else {
+                        echo "<h1 style='height: 100%; font-size: 150%; color:red;'>Connexion Requise </h1>";
+                    }  ?>
 
 
 
-                    </tbody>
-                </table>
+                        </tbody>
+                    </table>
 
             </div>
             <a href="../../../index.php">Retour</a>
