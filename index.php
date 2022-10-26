@@ -79,7 +79,7 @@ if ($_SERVER['SERVER_NAME'] == "localhost") {
             </div>
         </section>
     </main>
-    <script src="<?php echo $path ?>/js/index.js"></script>
+    <script src="<?php echo $path ?>/js/modif.js"></script>
 
 </body>
 

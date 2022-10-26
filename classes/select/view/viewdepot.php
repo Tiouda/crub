@@ -28,42 +28,43 @@ $no_depot = true;
     <main>
         <section>
             <h1>Liste des Dépôts.</h1>
-            <?php
-            if (isset($_SESSION['mail'])) {
-                if ($_SESSION['role'] == "directeur") {
-                    echo "     <a href=../../insert/view/user.php>Crée un Dépôt.</a>";
-                } else {
-                    echo "";
-                } ?>
-                <table>
-                    <thead>
-                        <?php
-                        if ($_SESSION['role'] == "directeur") {
-                            echo "     <th>Nom</th>
+            <div>
+                <?php
+                if (isset($_SESSION['mail'])) {
+                    if ($_SESSION['role'] == "directeur") {
+                        echo "     <a href=../../insert/view/user.php>Crée un Dépôt.</a>";
+                    } else {
+                        echo "";
+                    } ?>
+                    <table>
+                        <thead>
+                            <?php
+                            if ($_SESSION['role'] == "directeur") {
+                                echo "     <th>Nom</th>
                         <th>Ville</th>
                         <th>Code Postal</th>
                         <th>Longitude</th>
                         <th>Latitude</th>
                         <th>Directeur</th>
                         <th>Action</th>";
-                        } else {
-                            echo "<th>Nom</th>
+                            } else {
+                                echo "<th>Nom</th>
                             <th>Ville</th>
                             <th>Code Postal</th>
                             <th>Longitude</th>
                             <th>Latitude</th>
                             <th>Directeur</th>
                             <th>Action</th>";
-                        } ?>
+                            } ?>
 
-                    </thead>
-                    <tbody>
-                    <?php
-                    foreach ($pdo->query("SELECT * FROM `depot`") as $key => $row) {
-                        foreach ($pdo->query("SELECT * FROM `user` WHERE id =" . $row['directeur']) as $key2 => $row2) {
-                            $no_depot = false;
-                            if ($_SESSION['role'] == "directeur") {
-                                echo "
+                        </thead>
+                        <tbody>
+                        <?php
+                        foreach ($pdo->query("SELECT * FROM `depot`") as $key => $row) {
+                            foreach ($pdo->query("SELECT * FROM `user` WHERE id =" . $row['directeur']) as $key2 => $row2) {
+                                $no_depot = false;
+                                if ($_SESSION['role'] == "directeur") {
+                                    echo "
                                     <tr>
                                         <td>" . $row['nom'] . "</td>
                                         <td>" . $row['ville'] . "</td>
@@ -78,8 +79,8 @@ $no_depot = true;
                                         <button>Supprimer</button> </form> </td>
                                         </tr>
                                    ";
-                            } else {
-                                echo "
+                                } else {
+                                    echo "
                                     <tr>
                                     <td>" . $row['nom'] . "</td>
                                     <td>" . $row['ville'] . "</td>
@@ -90,21 +91,23 @@ $no_depot = true;
                                     <td><button>Voir</button></td>
                                     </tr>
                                    ";
+                                }
                             }
                         }
-                    }
-                    if ($no_depot == true) {
-                        echo "<td colspan='7'>Aucun dépôt n'a était trouver </td>";
-                    }
-                } else {
-                    echo "<h1 style='font-size: 150%; color:red;'>Connexion Requise </h1>";
-                }  ?>
+                        if ($no_depot == true) {
+                            echo "<td colspan='7'>Aucun dépôt n'a était trouver </td>";
+                        }
+                    } else {
+                        echo "<h1 style='font-size: 150%; color:red;'>Connexion Requise </h1>";
+                    }  ?>
 
 
 
-                    </tbody>
-                </table>
-                <a href="../../../index.php">Retour</a>
+                        </tbody>
+                    </table>
+
+            </div>
+            <a href="../../../index.php">Retour</a>
         </section>
     </main>
     <script src="<?php echo $path ?>/js/index.js"></script>
