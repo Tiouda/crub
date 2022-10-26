@@ -80,7 +80,7 @@ $no_user = true;
                                 <tr>
                                     <td>" . $row['nom'] . "</td>
                                     <td>" . $row['prenom'] . "</td>
-                                    <td><button>Voir</button>
+                                    <td><button class='open-button'>Voir</button>
                                 ";
                             }
                         }
@@ -102,16 +102,19 @@ $no_user = true;
                 $req = $pdo->query("SELECT * FROM `user`");
                 foreach ($req as $user) { ?>
                     <form>
-                        <label for='nom'><b>Nom</b></label>
                         <input type="hidden" class="id_user_<?php echo $user['id']; ?>" name="id" value="<?php echo $user['id']; ?>">
+                        <label for='nom'><b>Nom</b></label>
                         <input class="nom_<?php echo $user['id']; ?>" type="text" name="nom" value="<?php echo $user['nom']; ?>">
+                        <label for='prenom'><b>Prenom</b></label>
                         <input class="prenom_<?php echo $user['id']; ?>" type="text" name="prenom" value="<?php echo $user['prenom']; ?>">
+                        <label for='mail'><b>Mail</b></label>
                         <input class="mail_<?php echo $user['id']; ?>" type="text" name="mail" value="<?php echo $user['mail']; ?>">
+                        <label for='tel'><b>Tél</b></label>
                         <input class="tel_<?php echo $user['id']; ?>" type="text" name="tel" value="<?php echo $user['tel']; ?>">
                     <?php if ($_SESSION['role'] == "super") {
                         echo "
-                <label for='role'><b>Choisissez votre rôle</b></label>
-                <select name='role' value=" . $row['role'] . ">
+                        <label for='role'><b>Rôle</b></label>
+                <select  name='role' value=" . $row['role'] . ">
                 <option value ='directeur'>Directeur</option>
                 <option value ='magasinier'>Magasinier</option>
                 <button type='submit' class='btn'>Modifier</button>

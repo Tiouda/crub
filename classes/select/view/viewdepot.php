@@ -28,7 +28,7 @@ $no_depot = true;
     <main>
         <section>
             <h1>Liste des Dépôts.</h1>
-            <div>
+            <div class="bandeau1">
                 <?php
                 if (isset($_SESSION['mail'])) {
                     if ($_SESSION['role'] == "directeur") {
@@ -72,13 +72,13 @@ $no_depot = true;
                                         <td>" . $row['longit'] . "</td>
                                         <td>" . $row['lat'] . "</td>
                                         <td>" . $row2['nom'] . "" . ' ' . "" . $row2['prenom'] . "</td>
-                                        <td><button>Voir</button>
-                                        <button>Modifier</button>
-                                       <form action='../../delete/controller/del_depot.php' method='post'>
-                                       <input type='hidden' name='id_user' value=" . $row['id'] . ">
-                                        <button>Supprimer</button> </form> </td>
+                                        <td><button class='open-button'>Voir</button>
+                                        <button class='open-button'>Modifier</button>
+                                        <form action='../../delete/controller/del_depot.php' method='post'>
+                                        <input type='hidden' name='id_user' value=" . $row['id'] . ">
+                                        <button class='open-button'>Supprimer</button> </form> </td>
                                         </tr>
-                                   ";
+                                    ";
                                 } else {
                                     echo "
                                     <tr>
@@ -88,9 +88,9 @@ $no_depot = true;
                                     <td>" . $row['longit'] . "</td>
                                     <td>" . $row['lat'] . "</td>
                                     <td>" . $row2['nom'] . "" . ' ' . "" . $row2['prenom'] . "</td>
-                                    <td><button>Voir</button></td>
+                                    <td><button class='open-button'>Voir</button></td>
                                     </tr>
-                                   ";
+                                    ";
                                 }
                             }
                         }
@@ -107,7 +107,9 @@ $no_depot = true;
                     </table>
 
             </div>
-            <a href="../../../index.php">Retour</a>
+            <div class="retour">
+                <a href="../../../index.php">Retour</a>
+            </div>
         </section>
     </main>
     <script src="<?php echo $path ?>/js/index.js"></script>
