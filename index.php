@@ -23,19 +23,19 @@ if ($_SERVER['SERVER_NAME'] == "localhost") {
     <main>
         <div class="bandeau">
             <div class="titre">
-                <h1>Tableau de bord</h1>
+                <h1>Bienvenue sur votre tableau de bord</h1>
                 <?php if (isset($_SESSION['role']) == 1) {
-                    echo "<p>" . $_SESSION['role'] . "</p>";
+                    echo "<h1>" . $_SESSION['role'] . "";
                 } ?>
             </div>
             <div class="bouton">
-                <button class="open-button" onclick="openForm()"><?php if (isset($_SESSION['mail'])) {
-                                                                        echo " <form action='classes/deconnexion.php'>
-                                                                        <input type='submit' value='Déconnexion'></input>
-                                                                    </form>";
-                                                                    } else {
-                                                                        echo "Connexion";
-                                                                    } ?></button>
+                <?php if (isset($_SESSION['mail'])) {
+                    echo " <form  action='classes/deconnexion.php'>
+                        <input class='open-button' type='submit' value='Déconnexion'></input>
+                        </form>";
+                } else {
+                    echo "<button class='open-button' onclick='openForm()'>Connexion";
+                } ?></button>
                 <div class="form-popup" id="myForm">
                     <form action="classes/select/controller/connexion_trt.php" method="POST" class="form-container">
                         <h1>Connexion</h1>
@@ -44,7 +44,7 @@ if ($_SERVER['SERVER_NAME'] == "localhost") {
                         <input type="text" placeholder="Email" name="mail" required>
 
                         <label for="psw"><b>Mot de passe</b></label>
-                        <input type="password" placeholder="Mot de passe" name="password" required maxlength="10">
+                        <input type="password" placeholder="Mot de passe" name="password" required>
 
                         <button type="submit" class="btn">Login</button>
                         <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
@@ -52,34 +52,35 @@ if ($_SERVER['SERVER_NAME'] == "localhost") {
                 </div>
             </div>
         </div>
+
         <section>
             <div class="role">
                 <a href="<?php echo $path ?>/classes/select/view/viewuser.php">
                     <div>
-                        <h2>Utilisateurs</h2>
+                        <h2>UTILISATEURS</h2>
                     </div>
                 </a>
                 <a href="">
                     <div>
                         <h2>
-                            <h2>Type de Produit</h2>
+                            <h2>TYPE DE PRODUITS</h2>
                         </h2>
                     </div>
                 </a>
                 <a href="">
                     <div>
-                        <h2>Produits</h2>
+                        <h2>PRODUITS</h2>
                     </div>
                 </a>
                 <a href="<?php echo $path ?>/classes/select/view/viewdepot.php">
                     <div>
-                        <h2>Dépot</h2>
+                        <h2>DEPOT</h2>
                     </div>
                 </a>
             </div>
         </section>
     </main>
-    <script src="<?php echo $path ?>/js/modif.js"></script>
+    <script src="<?php echo $path ?>/js/index.js"></script>
 
 </body>
 

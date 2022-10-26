@@ -80,7 +80,7 @@ $no_user = true;
                                 <tr>
                                     <td>" . $row['nom'] . "</td>
                                     <td>" . $row['prenom'] . "</td>
-                                    <td><button>Voir</button>
+                                    <td><button class='open-button'>Voir</button>
                                 ";
                             }
                         }
@@ -110,8 +110,7 @@ $no_user = true;
                         <input class="tel_<?php echo $user['id']; ?>" type="text" name="tel" value="<?php echo $user['tel']; ?>">
                     <?php if ($_SESSION['role'] == "super") {
                         echo "
-                <label for='role'><b>Choisissez votre rôle</b></label>
-                <select name='role' value=" . $row['role'] . ">
+                <select  name='role' value=" . $row['role'] . ">
                 <option value ='directeur'>Directeur</option>
                 <option value ='magasinier'>Magasinier</option>
                 <button type='submit' class='btn'>Modifier</button>
