@@ -71,7 +71,7 @@ if ($_SERVER['SERVER_NAME'] == "localhost") {
                         <h2>Produits</h2>
                     </div>
                 </a>
-                <a href="">
+                <a href="<?php echo $path ?>/classes/select/view/viewdepot.php">
                     <div>
                         <h2>Dépot</h2>
                     </div>

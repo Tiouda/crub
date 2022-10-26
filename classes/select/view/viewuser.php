@@ -65,10 +65,11 @@ $no_user = true;
                                     <td>" . $row['mail'] . "</td>
                                     <td>" . $row['tel'] . "</td>
                                     <td>" . $row['role'] . "</td>
-                                    <td><button>Voir</button>
+                                    <td>
+                                    <input type='hidden' name='id_user' value=" . $row['id'] . ">
+                                    <button>Voir</button>
                                     <button>Modifier</button>
-                                   <form action='../../delete/controller/del_user.php' method='post'>
-                                   <input type='hidden' name='id_user' value=" . $row['id'] . ">
+                                    <form action='../../delete/controller/del_user.php' method='post'>
                                     <button>Supprimer</button> </form> </td>
                                ";
                             } else {
@@ -84,7 +85,7 @@ $no_user = true;
                             echo "<td colspan='6'>Aucun employé n'a était trouver </td>";
                         }
                     } else {
-                        echo "<h1 style='height: 100%; font-size: 150%; color:red;'>Connexion Requise </h1>";
+                        echo "<h1 style='font-size: 150%; color:red;'>Connexion Requise </h1>";
                     }  ?>
 
 
@@ -96,7 +97,7 @@ $no_user = true;
             <a href="../../../index.php">Retour</a>
         </section>
     </main>
-    <link rel="stylesheet" href="<?php echo $path ?>/js/user.js">
+    <script src="<?php echo $path ?>/js/modif.js"></script>
 </body>
 
 </html>
