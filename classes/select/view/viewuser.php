@@ -102,14 +102,21 @@ $no_user = true;
                 $req = $pdo->query("SELECT * FROM `user`");
                 foreach ($req as $user) { ?>
                     <form>
-                        <label for='nom'><b>Nom</b></label>
                         <input type="hidden" class="id_user_<?php echo $user['id']; ?>" name="id" value="<?php echo $user['id']; ?>">
+                        <label for='nom'><b>Nom</b></label>
                         <input class="nom_<?php echo $user['id']; ?>" type="text" name="nom" value="<?php echo $user['nom']; ?>">
+                        <label for='prenom'><b>Prenom</b></label>
                         <input class="prenom_<?php echo $user['id']; ?>" type="text" name="prenom" value="<?php echo $user['prenom']; ?>">
+                        <label for='mail'><b>Mail</b></label>
                         <input class="mail_<?php echo $user['id']; ?>" type="text" name="mail" value="<?php echo $user['mail']; ?>">
+                        <label for='tel'><b>Tél</b></label>
                         <input class="tel_<?php echo $user['id']; ?>" type="text" name="tel" value="<?php echo $user['tel']; ?>">
                     <?php if ($_SESSION['role'] == "super") {
                         echo "
+<<<<<<< HEAD
+=======
+                        <label for='role'><b>Rôle</b></label>
+>>>>>>> 1fe840bfae2e5ed6642fce8ea9ecb63381184dfe
                 <select  name='role' value=" . $row['role'] . ">
                 <option value ='directeur'>Directeur</option>
                 <option value ='magasinier'>Magasinier</option>
