@@ -31,29 +31,30 @@ $no_user = true;
             <h1>Liste des utilisateurs.</h1>
             <div class="bandeau1">
                 <?php
-                if ($_SESSION['role'] == "super") {
-                    echo "     <a href=../../insert/view/user.php>Crée un employé</a>";
-                } else {
-                    echo "";
-                } ?>
-                <table>
-                    <thead>
-                        <?php
-                        if ($_SESSION['role'] == "super") {
-                            echo "     <th>Nom</th>
+                if (isset($_SESSION['mail'])) {
+                    if ($_SESSION['role'] == "super") {
+                        echo "     <a href=../../insert/view/user.php>Crée un employé</a>";
+                    } else {
+                        echo "";
+                    } ?>
+                    <table>
+                        <thead>
+                            <?php
+                            if ($_SESSION['role'] == "super") {
+                                echo "     <th>Nom</th>
                         <th>Prénom</th>
                         <th>Mail</th>
                         <th>Tél</th>
                         <th>Rôle</th>
                         <th>Action</th>";
-                        } else {
-                            echo "<th>Nom</th>
+                            } else {
+                                echo "<th>Nom</th>
                             <th>Prénom</th>
                             <th>Action</th>";
-                        } ?>
+                            } ?>
 
-                    </thead>
-                    <tbody>
+                        </thead>
+                        <tbody>
                         <?php
                         foreach ($pdo->query("SELECT * FROM `user`") as $key => $row) {
                             $no_user = false;
@@ -86,9 +87,13 @@ $no_user = true;
                         }
                         if ($no_user == true) {
                             echo "<td colspan='6'>Aucun employé n'a était trouver </td>";
-                        } ?>
-                    </tbody>
-                </table>
+                        }
+                    } else {
+                        echo "<h1 style='font-size: 150%; color:red;'>Connexion Requise </h1>";
+                    } ?>
+                        </tbody>
+                    </table>
+
 
             </div>
             <div class="retour">
@@ -113,10 +118,7 @@ $no_user = true;
                         <input class="tel_<?php echo $user['id']; ?>" type="text" name="tel" value="<?php echo $user['tel']; ?>">
                     <?php if ($_SESSION['role'] == "super") {
                         echo "
-<<<<<<< HEAD
-=======
                         <label for='role'><b>Rôle</b></label>
->>>>>>> 1fe840bfae2e5ed6642fce8ea9ecb63381184dfe
                 <select  name='role' value=" . $row['role'] . ">
                 <option value ='directeur'>Directeur</option>
                 <option value ='magasinier'>Magasinier</option>

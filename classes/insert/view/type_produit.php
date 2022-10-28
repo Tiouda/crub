@@ -22,26 +22,17 @@ if ($_SERVER['SERVER_NAME'] == "localhost") {
 
 <body>
     <main>
-        <h1>Ajouter un nouvelle utilisateur.</h1>
+        <h1>Ajouter un nouveau Type de Produit.</h1>
         <section>
             <?php if (isset($_SESSION['mail'])) {
-                if ($_SESSION['role'] == "super") {
+                if ($_SESSION['role'] == "directeur") {
                     echo "
             <div class='contenue'>
-                <form action='../controller/add_user.php' method='POST'>
-                    <input type='text' placeholder='Nom' name='nom'>
-                    <input type='text' placeholder='Prénom' name='prenom'>
-                    <input type='mail' placeholder='Mail' name='mail'>
-                    <input type='password' placeholder='Mot de Passe' name='pass'>
-                    <input type='text' placeholder='Téléphone' name='tel'>
-                    <select name='role' id='>
-                        <option>Aucun</option>
-                        <option value='directeur'>Directeur</option>
-                        <option value='magasinier'>Magasinier</option>
-                    </select>
+                <form action='../controller/add_type_pdt.php' method='POST'>
+                    <input type='text' placeholder='Type de Produit' name='type'>
                     <button>Envoyer</button>
                 </form>
-                <a href='<?php echo $path ?>/index.php'>retour</a>
+                <a href='../../../index.php'>retour</a>
             </div>";
                 } else {
                     echo "

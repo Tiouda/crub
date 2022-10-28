@@ -32,7 +32,7 @@ $no_depot = true;
                 <?php
                 if (isset($_SESSION['mail'])) {
                     if ($_SESSION['role'] == "directeur") {
-                        echo "     <a href=../../insert/view/user.php>Crée un Dépôt.</a>";
+                        echo "     <a href=../../insert/view/depot.php>Crée un Dépôt.</a>";
                     } else {
                         echo "";
                     } ?>
@@ -74,13 +74,8 @@ $no_depot = true;
                                         <td>" . $row2['nom'] . "" . ' ' . "" . $row2['prenom'] . "</td>
                                         <td><button class='open-button'>Voir</button>
                                         <button class='open-button'>Modifier</button>
-<<<<<<< HEAD
-                                       <form action='../../delete/controller/del_depot.php' method='post'>
-                                       <input type='hidden' name='id_user' value=" . $row['id'] . ">
-=======
                                         <form action='../../delete/controller/del_depot.php' method='post'>
                                         <input type='hidden' name='id_user' value=" . $row['id'] . ">
->>>>>>> 1fe840bfae2e5ed6642fce8ea9ecb63381184dfe
                                         <button class='open-button'>Supprimer</button> </form> </td>
                                         </tr>
                                     ";

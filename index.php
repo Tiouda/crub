@@ -60,18 +60,27 @@ if ($_SERVER['SERVER_NAME'] == "localhost") {
                         <h2>UTILISATEURS</h2>
                     </div>
                 </a>
-                <a href="">
+                <?php
+                if (isset($_SESSION['role']) == 1) {
+                    if ($_SESSION['role'] == "directeur") {
+                        echo "
+                <a href='classes/select/view/viewtypepdt.php'>
                     <div>
                         <h2>
                             <h2>TYPE DE PRODUITS</h2>
                         </h2>
                     </div>
                 </a>
-                <a href="">
-                    <div>
-                        <h2>PRODUITS</h2>
-                    </div>
-                </a>
+                <a href='classes/select/view/viewproduit.php'>
+                <div>
+                    <h2>PRODUITS</h2>
+                </div>
+            </a>";
+                    } else {
+                        echo "";
+                    }
+                } ?>
+
                 <a href="<?php echo $path ?>/classes/select/view/viewdepot.php">
                     <div>
                         <h2>DEPOT</h2>
