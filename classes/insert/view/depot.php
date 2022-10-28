@@ -21,8 +21,10 @@ if ($_SERVER['SERVER_NAME'] == "localhost") {
 </head>
 
 <body>
+    <div class="top">
+        <h1>Ajouter un nouveau depot.</h1>
+    </div>
     <main>
-        <h1>Ajouter un nouvelle utilisateur.</h1>
         <section>
             <?php if (isset($_SESSION['mail'])) {
                 if ($_SESSION['role'] == "directeur") {
@@ -34,33 +36,33 @@ if ($_SERVER['SERVER_NAME'] == "localhost") {
                     <input type='text' placeholder='Code Postal' name='code_post'>
                     <input type='text' placeholder='Longittude' name='longit'>
                     <input type='text' placeholder='Latittude' name='lat'>
-                   
-                     foreach ($pdo->query("SELECT * FROM user") as $key => $row) {
+                    <select>"; ?>
+                    <?php foreach ($pdo->query('SELECT * FROM user ') as $key => $row) {
                         echo "
-                        <select>
-                        <option>" . $row['nom'] . "" . '-' . "" . $row['prenom'] . "
-                        </select>";
-                    ?>
-
-            <?php
-                        echo "
+                        <option>" . $row['prenom'] . "" . ' - ' . "" . $row['nom'] . "" . ' / ' . "" . $row['role'] . "
+                        ";
+                    } ?>
+                    </select>
+                    <div class='send'>
                     <button>Envoyer</button>
-                </form>
-                <a href='../../../index.php'>retour</a>
-            </div>";
-                    }
-                } else {
-                    echo "
-                Vous n'avez rien as faire ici !!";
+                    </div>
+          
+                    </form>
+                    <div class="retour">
+                        <a href='../../../index.php'>retour</a>
+                    </div>
+
+                    </div>
+            <?php
                 }
             } else {
                 echo "
-            Vous n'avez rien as faire ici !!";
-            }   ?>
+                Vous n'avez rien as faire ici !!";
+            }
+            ?>
         </section>
 
     </main>
-    <link rel="stylesheet" href="<?php echo $path ?>/js/user.js">
 </body>
 
 </html>

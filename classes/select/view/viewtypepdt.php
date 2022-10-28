@@ -27,7 +27,7 @@ $no_type_pdt = true;
 <body>
     <main>
         <section>
-            <h1>Liste des Dépôts.</h1>
+            <h1>Liste des Type de Produit.</h1>
             <div class="bandeau1">
                 <?php
                 if (isset($_SESSION['mail'])) {

@@ -5,11 +5,11 @@
 }
 
 main {
-  background-color: black;
+  background-color: #e5e5dc;
 }
 
 .bandeau {
-  background-color: darkslategrey;
+  background-color: #c66b3d;;
 }
 
 .titre {
@@ -19,7 +19,7 @@ main {
   flex-direction: column;
   width: 100%;
   height: 100px;
-  color: white;
+  color: #C4a35a;
 }
 
 .bouton {
@@ -45,20 +45,20 @@ main {
   height: 200px;
   text-decoration: none;
   border-radius: 20px;
-  color: white;
+  color: #C4a35a;
   transition: 0.7s;
 }
 
 .role a:hover {
   transform: scale(1.1);
-  box-shadow: 10px 5px 5px #be1558;
-  color: #be1558;
+  box-shadow: 10px 5px 5px #29465C;
+  color: #29465C;
 }
 
 /* Button used to open the contact form - fixed at the bottom of the page */
 .open-button {
-  background-color: #be1558;
-  color: white;
+  background-color: #29465C;
+  color: #C4a35a;
   padding: 16px 18px;
   border-radius: 10px;
   border: none;
@@ -86,7 +86,9 @@ main {
 .form-container {
   max-width: 300px;
   padding: 10px;
-  background-color: white;
+  background-color: #e5e5dc;
+  box-shadow: 9px 6px 12px #c66b3d;
+  border-radius: 8px;
 }
 
 /* Full-width input fields */
@@ -108,8 +110,8 @@ main {
 
 /* Set a style for the submit/login button */
 .form-container .btn {
-  background-color: blueviolet;
-  color: white;
+  background-color: #26495c;
+  color: #C4a35a;
   padding: 16px 20px;
   border: none;
   cursor: pointer;

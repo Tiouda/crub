@@ -21,8 +21,12 @@ if ($_SERVER['SERVER_NAME'] == "localhost") {
 </head>
 
 <body>
-    <main>
+    <div class="top">
         <h1>Ajouter un nouveau Type de Produit.</h1>
+    </div>
+    <main>
+
+
         <section>
             <?php if (isset($_SESSION['mail'])) {
                 if ($_SESSION['role'] == "directeur") {
@@ -30,9 +34,13 @@ if ($_SERVER['SERVER_NAME'] == "localhost") {
             <div class='contenue'>
                 <form action='../controller/add_type_pdt.php' method='POST'>
                     <input type='text' placeholder='Type de Produit' name='type'>
+                    <div class='send'>
                     <button>Envoyer</button>
+                    </div>
                 </form>
+                <div class='retour'>
                 <a href='../../../index.php'>retour</a>
+                </div>
             </div>";
                 } else {
                     echo "
@@ -45,7 +53,6 @@ if ($_SERVER['SERVER_NAME'] == "localhost") {
         </section>
 
     </main>
-    <link rel="stylesheet" href="<?php echo $path ?>/js/user.js">
 </body>
 
 </html>

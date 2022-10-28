@@ -55,7 +55,7 @@ $no_type_pdt = true;
                         </thead>
                         <tbody>
                         <?php
-                        foreach ($pdo->query("SELECT * FROM `pdt`") as $key => $row) {
+                        foreach ($pdo->query("SELECT * FROM `pdt` INNER JOIN  type_pdt ON pdt.id = type_pdt.id") as $key => $row) {
                             $no_type_pdt = false;
                             if ($_SESSION['role'] == "directeur") {
                                 echo "

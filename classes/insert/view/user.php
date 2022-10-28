@@ -21,8 +21,11 @@ if ($_SERVER['SERVER_NAME'] == "localhost") {
 </head>
 
 <body>
-    <main>
+    <div class="top">
         <h1>Ajouter un nouvelle utilisateur.</h1>
+    </div>
+    <main>
+
         <section>
             <?php if (isset($_SESSION['mail'])) {
                 if ($_SESSION['role'] == "super") {
@@ -39,9 +42,14 @@ if ($_SERVER['SERVER_NAME'] == "localhost") {
                         <option value='directeur'>Directeur</option>
                         <option value='magasinier'>Magasinier</option>
                     </select>
+                    <div class='send'>
                     <button>Envoyer</button>
+                    </div>
                 </form>
-                <a href='<?php echo $path ?>/index.php'>retour</a>
+                <div class='retour'>
+                <a href='../../index.php'>retour</a>
+                </div>
+              
             </div>";
                 } else {
                     echo "
@@ -54,7 +62,6 @@ if ($_SERVER['SERVER_NAME'] == "localhost") {
         </section>
 
     </main>
-    <link rel="stylesheet" href="<?php echo $path ?>/js/user.js">
 </body>
 
 </html>

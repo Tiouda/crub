@@ -21,30 +21,37 @@ if ($_SERVER['SERVER_NAME'] == "localhost") {
 </head>
 
 <body>
+<div class="top">
+            <h1>Ajouter un nouveau produit</h1>
+        </div>
     <main>
-        <h1>Ajouter un nouveau produit</h1>
+       
+
         <section>
             <div class="contenue">
-                <form action="../controller/produit.php" method="POST">
+                <form action="../controller/add_produit.php" method="POST">
                     <input type="text" placeholder="Nom" name="nom">
                     <input type="file" name="photo">
                     <input type="text" placeholder="Description" name="description">
-                    <select name="type" id="">
-                        <option>Type de produit</option>
-                        <option value="finis">Produit finis</option>
-                        <option value="semi_finis">Semi finis</option>
-                        <option value="matière">Matière première</option>
+                    <select name="type">
+                        <?php foreach ($pdo->query('SELECT * FROM type_pdt ') as $key => $row) {
+                            echo "
+                        <option  value=" . $row['id'] . ">" . $row['id'] . "" . ' - ' . "" . $row['type'] . "
+                        ";
+                        } ?>
                     </select>
+                    <div class='send'>
                     <button>Envoyer</button>
+                    </div>
                 </form>
                 <div class="retour">
-                <a href="<?php echo $path ?>/index.php">Retour</a>
+                    <a href="<?php echo $path ?>/index.php">Retour</a>
                 </div>
             </div>
         </section>
 
     </main>
-    <link rel="stylesheet" href="<?php echo $path ?>/js/user.js">
+
 </body>
 
 </html>

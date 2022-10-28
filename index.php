@@ -25,7 +25,7 @@ if ($_SERVER['SERVER_NAME'] == "localhost") {
             <div class="titre">
                 <h1>Bienvenue sur votre tableau de bord</h1>
                 <?php if (isset($_SESSION['role']) == 1) {
-                    echo "<h1>" . $_SESSION['role'] . "";
+                    echo "<h1>" . ucfirst($_SESSION['role']) . "";
                 } ?>
             </div>
             <div class="bouton">

@@ -2,8 +2,14 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    background: #e5e5dc;
 }
-
+.top{
+    background: #c66b3d;
+    padding: 1%;
+    margin-bottom: 1%;
+    text-align: center;
+}
 section .contenue form{
     display: flex;
     justify-content: center;
@@ -16,4 +22,32 @@ section .contenue form input,section .contenue form select {
     width: 30%;
     margin: 0 auto;
     text-align: center;
+}
+.contenue button {
+    width: 10%;
+    background: #26495c;
+    color: #c4a35a;
+    padding: 1%;
+    border-radius: 1000px;
+}
+.send{
+    display: flex;
+    justify-content: center;
+}
+.retour a {
+    margin-bottom: 3%;
+    padding: 1%;
+    border: 2px solid #c66b3d;
+    width: 100px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 10px;
+    background-color: #c66b3d;
+    color: #c4a35a;
+    margin-top: 3%;
+    transition: 0.7s;
+}
+
+.retour a:hover{
+    transform: scale(1.1);
 }
