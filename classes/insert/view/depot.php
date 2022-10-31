@@ -37,16 +37,16 @@ if ($_SERVER['SERVER_NAME'] == "localhost") {
                     <input type='text' placeholder='Longittude' name='longit'>
                     <input type='text' placeholder='Latittude' name='lat'>
                     <select>"; ?>
-                    <?php foreach ($pdo->query('SELECT * FROM user ') as $key => $row) {
+                    <?php foreach ($pdo->query('SELECT * FROM user WHERE role = "directeur"') as $key => $row) {
                         echo "
                         <option>" . $row['prenom'] . "" . ' - ' . "" . $row['nom'] . "" . ' / ' . "" . $row['role'] . "
                         ";
                     } ?>
                     </select>
                     <div class='send'>
-                    <button>Envoyer</button>
+                        <button>Envoyer</button>
                     </div>
-          
+
                     </form>
                     <div class="retour">
                         <a href='../../../index.php'>retour</a>
